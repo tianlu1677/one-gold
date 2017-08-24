@@ -1,0 +1,10 @@
+{
+	"pages": [
+    "pages/index/index",
+    "pages/success/index",
+    "pages/mybuy/index",
+    "pages/mysale/index"
+  ],
+
+	"navigationBarTitleText": "千金一字"
+}

@@ -1,0 +1,89 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__hd">
+        <view class="page__title"></view>
+        <view class="page__desc"></view>
+    </view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="page__bd">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+
+        <view class="weui-cells__title">快速分享您的知识和经验</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">标题</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="title" maxlength="10" placeholder="请输入标题"/>
+                </view>
+            </view>
+
+              <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell">
+                      <view class="weui-cell__bd">
+                          <textarea class="weui-textarea" name="description" placeholder="请输入描述" style="height: 3.3em" />
+                          <view class="weui-textarea-counter">0/200</view>
+                      </view>
+                 </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">图片</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="image" placeholder="请选择一张图片"/>
+                </view>
+              </view>
+
+              <view class="weui-cells weui-cells_after-title">
+                  <view class="weui-cell">
+
+                      <view class="weui-cell__bd">
+                          <textarea class="weui-textarea" name="content" placeholder="加密的内容" style="height: 3.3em" />
+                          <view class="weui-textarea-counter">0/200</view>
+                      </view>
+                 </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">价格</view>
+                </view>
+
+                <view class="weui-cell__bd">
+                  <slider name="price" min="1" max="200" show-value/>
+                </view>
+              </view>
+
+              <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">过期时间</view>
+                </view>
+
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="passed_time" placeholder="三天"/>
+                </view>
+
+              </view>
+              <view class="weui-cells__tips">分享的存在时间默认是三天</view>
+
+            <checkbox-group bindchange="bindAgreeChange">
+              <label class="weui-agree" for="weuiAgree">
+                <view class="weui-agree__text">
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="checked" />
+                    <view class="weui-agree__checkbox-icon">
+                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9"></icon>
+                    </view>
+                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                </view>
+              </label>
+            </checkbox-group>
+        </view>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" formType="submit">确定</button>
+        </view>
+      </view>
+    </form>
+</view>
