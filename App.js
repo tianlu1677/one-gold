@@ -1,8 +1,8 @@
 App({
   onLaunch: function() {
     // Do something initial when launch.
-   
-    
+
+
   },
   onShow: function() {
       // Do something when show.
