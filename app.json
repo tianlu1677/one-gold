@@ -1,9 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/mybuy/index",
     "pages/success/index",
-    "pages/index/index",
-    "pages/mysale/index"
+    "pages/mysale/index",
+    "pages/home/home",
+    "pages/home/service_intro"
+
   ],
   "window": {
     "backgroundTextStyle": "white",
@@ -13,6 +16,11 @@
     "backgroundColor": "#FFF"
   },
   "tabBar": {
+    "backgroundColor": "",
+    "borderStyle": "white",
+    "selectedColor": "black",
+    "position": "bottom",
+    "color": "red",
     "list": [
       {
         "pagePath": "pages/mysale/index",
@@ -22,8 +30,7 @@
         "pagePath": "pages/mybuy/index",
         "text": "我购买的"
       }
-      ]
+    ]
   },
-
   "debug": true
 }
