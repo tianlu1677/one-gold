@@ -8,41 +8,44 @@
             <view class="weui-form-preview__hd">
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">标题</view>
-                    <view class="weui-form-preview__value_in-hd">战狼2的网盘地址</view>
+                    <view class="weui-form-preview__value_in-hd">{{gold_post.title}}</view>
                 </view>
             </view>
             <view class="weui-form-preview__bd">
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">描述</view>
-                    <view class="weui-form-preview__value">这个是非常好看的点哟</view>
+                    <view class="weui-form-preview__value">{{gold_post.description}}</view>
                 </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">失效时间</view>
-                    <view class="weui-form-preview__value">2017-08-08 12：00：00</view>
-                </view>
+                <!-- <view class="weui-form-preview__item"> -->
+                    <!-- <view class="weui-form-preview__label">失效时间</view> -->
+                    <!-- <view class="weui-form-preview__value">{{}}</view> -->
+                <!-- </view> -->
 
 
-                <view class="weui-form-preview__item">
+                <!-- <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">分享图片</view>
                     <view class="weui-form-preview__value">
                       <image style="width: 100px; height: 100px;" src="https://pic2.zhimg.com/50/v2-8d39204322fbf7ab218fa1b1a3cbe431_xs.jpg" he />
                     </view>
-                </view>
+                </view> -->
 
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">内容</view>
-                    <view class="weui-form-preview__value">具体的网址是这样子的</view>
+                    <view class="weui-form-preview__value">{{gold_post.content}}</view>
+                </view>
+                 <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{gold_post.price}}元</view>
                 </view>
 
             </view>
 
             <view class="weui-form-preview__ft">
-              <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">分享</navigator>
+              <button class="weui-form-preview__btn weui-form-preview__btn_primary"  open-type="share" hover-class="weui-form-preview__btn_active">分享</button>
             </view>
 
             <view class="weui-form-preview__ft">
-                <navigator url="" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">编辑</navigator>
-
+                <navigator url="/pages/edit/index?id={{gold_post.id}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">编辑</navigator>
             </view>
 
         </view>

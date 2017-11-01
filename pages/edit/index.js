@@ -1,4 +1,4 @@
-// index.js
+// pages/edit/index.js
 Page({
 
   /**

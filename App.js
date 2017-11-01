@@ -1,20 +1,14 @@
 App({
   onLaunch: function() {
-    // Do something initial when launch.
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    
+  },
 
-  },
   onShow: function() {
-      // Do something when show.
-      console.log('onshow')
-      this.getAccountInfoDetail();
+    this.getAccountInfoDetail();
   },
-  onHide: function() {
-      // Do something when hide.
-  },
+
   // 获取用户的信息，包括弹窗申请信息，注册用户，更新用户基本信息
   getAccountInfoDetail: function(){
     this.validateUserSetting();
@@ -25,9 +19,9 @@ App({
       this.fetchUserDetailInfo();
     }
   },
-  
+
   // 检查用户的session是否过期
-  validateUserSession: function(){  
+  validateUserSession: function(){
     var sessionOk = false;
     wx.checkSession({
       success: function () {
@@ -53,14 +47,15 @@ App({
           console.log("获取了登录凭证", code)
           // --------- 发送凭证 ------------------
           wx.request({
-            url: 'http://localhost:4000/api/gold/accounts',
+            url: that.globalData.base_url + '/api/gold/accounts',
             method: 'POST',
             data: {
               code: code
             },
             success: function (res) {
-              console.log('current_user', res.data)
               that.userData = res.data.gold_account;
+              wx.setStorageSync('userData', that.userData);
+              console.log('current_user', that.userData)
             },
             fail: function (res) {
               console.log(res.data)
@@ -73,18 +68,19 @@ App({
     })
   },
 
+  // 获取用户的详细信息
   fetchUserDetailInfo: function(){
     var that = this;
     wx.getUserInfo({
       success: function (res) {
         var userInfo = res.userInfo
         var raw_data = res.rawData;
-        
+        console.log('user data', that.userData)
         wx.request({
-          url: 'http://localhost:4000/api/gold/accounts/update_info',
+          url: that.globalData.base_url + '/api/gold/accounts/update_info',
           method: 'PUT',
           data: {
-            token: that.userData.token,
+            token: that.userData.token || wx.getStorageSync('userData').token,
             raw_data: raw_data,
           },
           success: function (res) {
@@ -97,7 +93,6 @@ App({
         })
       }
     })
-    
   },
 
   // 获取用户的权限
@@ -108,7 +103,7 @@ App({
           wx.authorize({
             scope: 'scope.userInfo',
             success() {
-              console.log('获取授权成功');            
+              console.log('获取授权成功');
             }
           })
         } else {
@@ -118,15 +113,13 @@ App({
     })
   },
 
-  fetchUserInfo: function(cb) {
-    var that = this;    
-           
-  },
-
   globalData: {
-    systemInfo: null
+    systemInfo: null,
+    base_url: 'http://localhost:4000/'
   },
-  userData: {
 
-  }
+  userData: {
+  },
+
+
 })

@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/show/index",
+    "pages/new/index",    
     "pages/mybuy/index",
-    "pages/success/index",
     "pages/mysale/index",
     "pages/home/home",
-    "pages/home/service_intro"
-
+    "pages/home/service_intro",
+    "pages/edit/index"
   ],
   "window": {
     "backgroundTextStyle": "white",
