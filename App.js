@@ -3,10 +3,11 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    this.getAccountInfoDetail();
   },
 
   onShow: function() {
-    this.getAccountInfoDetail();
+    
   },
 
   // 获取用户的信息，包括弹窗申请信息，注册用户，更新用户基本信息
@@ -115,7 +116,7 @@ App({
 
   globalData: {
     systemInfo: null,
-    base_url: 'http://localhost:4000/'
+    base_url: 'http://localhost:4000'
   },
 
   userData: {
